@@ -8,6 +8,10 @@
 	font-size: 15px;
 }
 
+html{
+	font-size: calc(12px + 0.37vw);
+}
+
 body {
 	margin: 0;
 	--color-text: #000;
@@ -210,10 +214,14 @@ a:focus-visible {
 	width: calc(100% - var(--grid-padding) * 2);
 	height: calc(100% - var(--grid-padding) * 2);
 	margin: var(--grid-padding);
+	/* width: 20rem;
+	height: 15rem; */
 	/* border-radius: var(--grid-border-radius); */
 	display: block;
 	position: relative;
 	overflow: hidden;
+	object-fit: cover;
+	object-position: bottom;
 }
 
 .grid__cell-img-inner {
