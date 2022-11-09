@@ -152,7 +152,6 @@ a:focus-visible {
 }
 
 .grid {
-  --grid-border-radius: 8px;
   grid-template-columns: repeat(2, 50%);
   margin-bottom: 7rem;
   display: grid;
@@ -197,7 +196,6 @@ a:focus-visible {
   width: calc(100% - var(--grid-padding) * 2);
   height: calc(100% - var(--grid-padding) * 2);
   margin: var(--grid-padding);
-  border-radius: var(--grid-border-radius);
   display: block;
   position: relative;
   overflow: hidden;
@@ -283,12 +281,10 @@ a:focus-visible {
 }
 
 .slide-nav__img--prev {
-  border-radius: 0 0 1.5vw 1.5vw;
   transform: translateY(-100%);
 }
 
 .slide-nav__img--next {
-  border-radius: 1.5vw 1.5vw 0 0;
   transform: translateY(100%);
 }
 
