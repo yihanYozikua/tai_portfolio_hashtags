@@ -117,10 +117,10 @@ export class Grid {
                 }
                 gsap.killTweensOf([imageCell.DOM.el, imageCell.DOM.inner]);
                 gsap.timeline({
-                    defaults: {duration: 1.6, ease: 'expo'}
+                    defaults: {duration: 1.2, ease: 'expo'}
                 })
-                .to(imageCell.DOM.el, {scale: 0.98}, 0)
-                .to(imageCell.DOM.inner, {scale: 1.2}, 0);
+                .to(imageCell.DOM.el, {scale: 0.99}, 0)
+                .to(imageCell.DOM.inner, {scale: 1.08}, 0);
             });
 
             // Hovering out will reverse the scale values.
@@ -130,7 +130,7 @@ export class Grid {
                 }
                 gsap.killTweensOf([imageCell.DOM.el, imageCell.DOM.inner]);
                 gsap.timeline({
-                    defaults: {duration: 1.6, ease: 'expo'}
+                    defaults: {duration: 1.2, ease: 'expo'}
                 })
                 .to([imageCell.DOM.el, imageCell.DOM.inner], {scale: 1}, 0);
             });

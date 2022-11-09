@@ -1120,13 +1120,13 @@ class Grid {
                 ]);
                 (0, _gsap.gsap).timeline({
                     defaults: {
-                        duration: 1.6,
+                        duration: 1.2,
                         ease: "expo"
                     }
                 }).to(imageCell.DOM.el, {
-                    scale: 0.98
+                    scale: 0.99
                 }, 0).to(imageCell.DOM.inner, {
-                    scale: 1.2
+                    scale: 1.08
                 }, 0);
             });
             // Hovering out will reverse the scale values.
@@ -1138,7 +1138,7 @@ class Grid {
                 ]);
                 (0, _gsap.gsap).timeline({
                     defaults: {
-                        duration: 1.6,
+                        duration: 1.2,
                         ease: "expo"
                     }
                 }).to([
