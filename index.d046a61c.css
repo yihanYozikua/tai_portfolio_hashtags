@@ -334,9 +334,35 @@ a:focus-visible {
     display: flex;
   }
 
+  .side_bar_container {
+    width: 6%;
+    height: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .side_bar_title_prop {
+    writing-mode: vertical-lr;
+    width: 6%;
+  }
+
+  .side_bar_contents_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
   .grid {
     width: 94%;
     grid-template-columns: repeat(4, 25%);
+    margin-bottom: 7rem;
   }
 
   .grid__cell--padded {
