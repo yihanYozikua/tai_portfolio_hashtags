@@ -379,6 +379,46 @@ a:focus-visible {
     grid-area: 4 / 2;
   }
 
+  .grid__cell-c4-r4 {
+    grid-area: 4 / 4;
+  }
+
+  .grid__cell-c1-r5 {
+    grid-area: 5 / 1;
+  }
+
+  .grid__cell-c3-r5 {
+    grid-area: 5 / 3;
+  }
+
+  .grid__cell-c4-r5 {
+    grid-area: 5 / 4;
+  }
+
+  .grid__cell-c1-r6 {
+    grid-area: 6 / 1;
+  }
+
+  .grid__cell-c2-r6 {
+    grid-area: 6 / 2;
+  }
+
+  .grid__cell-c3-r6 {
+    grid-area: 6 / 3;
+  }
+
+  .grid__cell-c2-r7 {
+    grid-area: 7 / 2;
+  }
+
+  .grid__cell-c3-r7 {
+    grid-area: 7 / 3;
+  }
+
+  .grid__cell-c4-r7 {
+    grid-area: 7 / 4;
+  }
+
   .grid--mini {
     visibility: visible;
     position: relative;
