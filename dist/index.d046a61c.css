@@ -327,7 +327,13 @@ a:focus-visible {
     width: 38%;
   }
 
+  main {
+    justify-content: flex-end;
+    display: flex;
+  }
+
   .grid {
+    width: 94%;
     grid-template-columns: repeat(4, 25%);
   }
 

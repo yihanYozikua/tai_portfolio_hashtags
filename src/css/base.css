@@ -340,8 +340,13 @@ a:focus-visible {
 	.content {
 		width: 38%;
 	}
+	main{
+		display: flex;
+		justify-content: flex-end;
+	}
 	.grid {
 		grid-template-columns: repeat(4,25%);
+		width: 94%;
 	}
 	.grid__cell--padded {
 		padding: var(--grid-padding);
