@@ -152,7 +152,6 @@ a:focus-visible {
 }
 
 .grid {
-  --grid-border-radius: 0px;
   grid-template-columns: repeat(2, 50%);
   margin-bottom: 7rem;
   display: grid;
