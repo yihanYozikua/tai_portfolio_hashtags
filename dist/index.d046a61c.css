@@ -336,7 +336,7 @@ a:focus-visible {
   }
 
   .grid__cell-c1-r1 {
-    grid-area: 1 / 1;
+    grid-area: 1 / 2;
   }
 
   .grid__cell-c3-r1 {
@@ -351,12 +351,8 @@ a:focus-visible {
     grid-area: 2 / 1;
   }
 
-  .grid__cell-c2-r2 {
+  .grid__cell-c2-r2, .grid__cell-c3-r2 {
     grid-area: 2 / 2;
-  }
-
-  .grid__cell-c3-r2 {
-    grid-area: 2 / 3;
   }
 
   .grid__cell-c4-r2 {
@@ -368,19 +364,19 @@ a:focus-visible {
   }
 
   .grid__cell-c4-r3 {
-    grid-area: 3 / 4;
+    grid-area: 3 / 3;
   }
 
   .grid__cell-c1-r4 {
-    grid-area: 4 / 1;
+    grid-area: 3 / 4;
   }
 
   .grid__cell-c3-r4 {
-    grid-area: 4 / 3;
+    grid-area: 4 / 1;
   }
 
   .grid__cell-c3-r5 {
-    grid-area: 5 / 3;
+    grid-area: 4 / 2;
   }
 
   .grid--mini {
