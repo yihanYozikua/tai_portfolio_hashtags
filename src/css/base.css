@@ -362,7 +362,7 @@ a:focus-visible {
 	.grid__cell-c4-r3 { grid-column: 3; grid-row: 3; }
 	.grid__cell-c1-r4 { grid-column: 4; grid-row: 3; }
 	.grid__cell-c3-r4 { grid-column: 1; grid-row: 4; }
-	.grid__cell-c3-r5 { grid-column: 2; grid-row: 4; }
+	.grid__cell-c2-r4 { grid-column: 2; grid-row: 4; }
 	.grid__cell-c4-r4 { grid-column: 4; grid-row: 4; }
 	.grid__cell-c1-r5 { grid-column: 1; grid-row: 5; }
 	.grid__cell-c3-r5 { grid-column: 3; grid-row: 5; }
