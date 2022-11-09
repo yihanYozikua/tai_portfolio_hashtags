@@ -154,6 +154,7 @@ a:focus-visible {
 .grid {
   --grid-border-radius: 8px;
   grid-template-columns: repeat(2, 50%);
+  margin-bottom: 7rem;
   display: grid;
 }
 
@@ -362,7 +363,6 @@ a:focus-visible {
   .grid {
     width: 94%;
     grid-template-columns: repeat(4, 25%);
-    margin-bottom: 7rem;
   }
 
   .grid__cell--padded {

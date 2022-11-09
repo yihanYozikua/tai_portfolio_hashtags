@@ -168,6 +168,7 @@ a:focus-visible {
 	display: grid;
 	--grid-border-radius: 8px;
 	grid-template-columns: repeat(2,50%);
+	margin-bottom: 7rem;
 }
 
 .grid--large {
@@ -379,7 +380,6 @@ a:focus-visible {
 	.grid {
 		grid-template-columns: repeat(4,25%);
 		width: 94%;
-		margin-bottom: 7rem;
 	}
 	.grid__cell--padded {
 		padding: var(--grid-padding);
