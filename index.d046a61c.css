@@ -6,6 +6,10 @@
   font-size: 15px;
 }
 
+html {
+  font-size: calc(12px + .37vw);
+}
+
 body {
   --color-text: #000;
   --color-bg: #f7f5ee;
@@ -196,6 +200,8 @@ a:focus-visible {
   width: calc(100% - var(--grid-padding) * 2);
   height: calc(100% - var(--grid-padding) * 2);
   margin: var(--grid-padding);
+  object-fit: cover;
+  object-position: bottom;
   display: block;
   position: relative;
   overflow: hidden;

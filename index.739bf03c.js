@@ -143,13 +143,13 @@
     }
   }
 })({"cVgJb":[function(require,module,exports) {
-"use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "ba60c367739bf03c";
+"use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -1718,7 +1718,7 @@ _unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, _globalTimeline, _win, _core
     if (!(harnessPlugin = (target._gsap || {}).harness)) {
         // find the first target with a harness. We assume targets passed into an animation will be of similar type, meaning the same kind of harness can be used for them all (performance optimization)
         i = _harnessPlugins.length;
-        while((i--) && !_harnessPlugins[i].targetTest(target));
+        while(i-- && !_harnessPlugins[i].targetTest(target));
         harnessPlugin = _harnessPlugins[i];
     }
     i = targets.length;
@@ -4561,13 +4561,6 @@ _windowExists() && _wake();
 var Power0 = _easeMap.Power0, Power1 = _easeMap.Power1, Power2 = _easeMap.Power2, Power3 = _easeMap.Power3, Power4 = _easeMap.Power4, Linear = _easeMap.Linear, Quad = _easeMap.Quad, Cubic = _easeMap.Cubic, Quart = _easeMap.Quart, Quint = _easeMap.Quint, Strong = _easeMap.Strong, Elastic = _easeMap.Elastic, Back = _easeMap.Back, SteppedEase = _easeMap.SteppedEase, Bounce = _easeMap.Bounce, Sine = _easeMap.Sine, Expo = _easeMap.Expo, Circ = _easeMap.Circ;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l02JQ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "CSSPlugin", ()=>CSSPlugin);
-parcelHelpers.export(exports, "default", ()=>CSSPlugin);
-parcelHelpers.export(exports, "_getBBox", ()=>_getBBox);
-parcelHelpers.export(exports, "_createElement", ()=>_createElement);
-parcelHelpers.export(exports, "checkPrefix", ()=>_checkPropPrefix);
 /*!
  * CSSPlugin 3.11.3
  * https://greensock.com
@@ -4576,7 +4569,14 @@ parcelHelpers.export(exports, "checkPrefix", ()=>_checkPropPrefix);
  * Subject to the terms at https://greensock.com/standard-license or for
  * Club GreenSock members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
-*/ /* eslint-disable */ var _gsapCoreJs = require("./gsap-core.js");
+*/ /* eslint-disable */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CSSPlugin", ()=>CSSPlugin);
+parcelHelpers.export(exports, "default", ()=>CSSPlugin);
+parcelHelpers.export(exports, "_getBBox", ()=>_getBBox);
+parcelHelpers.export(exports, "_createElement", ()=>_createElement);
+parcelHelpers.export(exports, "checkPrefix", ()=>_checkPropPrefix);
+var _gsapCoreJs = require("./gsap-core.js");
 var _win, _doc, _docElement, _pluginInitted, _tempDiv, _tempDivStyler, _recentSetterPlugin, _reverting, _windowExists = function _windowExists() {
     return typeof window !== "undefined";
 }, _transformProps = {}, _RAD2DEG = 180 / Math.PI, _DEG2RAD = Math.PI / 180, _atan2 = Math.atan2, _bigNum = 1e8, _capsExp = /([A-Z])/g, _horizontalExp = /(left|right|width|margin|padding|x)/i, _complexExp = /[\s,\(]\S/, _propertyAliases = {
@@ -4675,7 +4675,7 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
     var e = element || _tempDiv, s = e.style, i = 5;
     if (property in s && !preferPrefix) return property;
     property = property.charAt(0).toUpperCase() + property.substr(1);
-    while((i--) && !(_prefixes[i] + property in s));
+    while(i-- && !(_prefixes[i] + property in s));
     return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
 }, _initCore = function _initCore() {
     if (_windowExists() && window.document) {
@@ -5594,14 +5594,14 @@ class TextLinesReveal {
 }
 
 },{"split-type":"fvGAG","./utils":"72Dku","gsap":"fPSuC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fvGAG":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
 /**
  * SplitType
  * https://github.com/lukePeavey/SplitType
  * @version 0.2.5
  * @author Luke Peavey <lwpeavey@gmail.com>
- */ function _classCallCheck(instance, Constructor) {
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
 }
 function _defineProperties(target, props) {
