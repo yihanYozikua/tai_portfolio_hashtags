@@ -15,6 +15,7 @@ body {
   --color-bg: #f7f5ee;
   --color-link: #000;
   --color-link-hover: #000;
+  --color-hashtag-title: #3f729b;
   color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
@@ -169,7 +170,7 @@ a:focus-visible {
 
 .grid--mini {
   width: 220px;
-  height: 190px;
+  height: 300px;
   --grid-padding: 1px;
   pointer-events: none;
   opacity: 0;
@@ -247,8 +248,9 @@ a:focus-visible {
 }
 
 .content__item-heading {
+  color: var(--color-hashtag-title);
   margin: 1rem 0 3rem;
-  font-size: 4vw;
+  font-size: 1.5vw;
   font-weight: 600;
   line-height: 1;
 }
@@ -278,6 +280,7 @@ a:focus-visible {
   height: 10vh;
   opacity: .3;
   cursor: not-allowed;
+  background-size: cover;
   position: relative;
   overflow: hidden;
 }
