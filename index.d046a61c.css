@@ -169,7 +169,7 @@ a:focus-visible {
 
 .grid--mini {
   width: 220px;
-  height: 190px;
+  height: 300px;
   --grid-padding: 1px;
   pointer-events: none;
   opacity: 0;
