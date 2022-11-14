@@ -250,6 +250,7 @@ a:focus-visible {
 .content__item-heading {
   color: var(--color-hashtag-title);
   margin: 1rem 0 3rem;
+  font-family: Outfit, sans-serif;
   font-size: 1.5vw;
   font-weight: 600;
   line-height: 1;
