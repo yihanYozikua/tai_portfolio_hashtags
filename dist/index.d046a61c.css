@@ -311,13 +311,24 @@ a:focus-visible {
   opacity: 0;
   pointer-events: none;
   stroke: #000;
+  color: #282d2f;
   z-index: 1000;
   cursor: pointer;
-  width: 50px;
-  background: none;
+  width: 10rem;
+  background-color: #fff;
   border: 0;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
   margin: auto 0 1.5rem;
-  padding: 0;
+  padding: .7rem 1rem;
+  font-family: Outfit, sans-serif;
+  font-size: .7rem;
+  font-weight: 400;
+  display: flex;
+  position: absolute;
+  top: 5vh;
+  box-shadow: -3px 4px 100px -11px gray;
 }
 
 .back svg {
@@ -325,7 +336,6 @@ a:focus-visible {
 }
 
 .back:hover, .back:focus {
-  stroke: #823725;
   outline: none;
 }
 
