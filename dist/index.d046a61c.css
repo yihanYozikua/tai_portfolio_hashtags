@@ -100,9 +100,9 @@ a:focus-visible {
 
 .line {
   transform-origin: 0%;
-  white-space: nowrap;
   will-change: transform;
   padding-bottom: .35rem;
+  line-height: 2rem;
 }
 
 .oh {
@@ -257,7 +257,9 @@ a:focus-visible {
 }
 
 .content__item-text {
-  max-width: 30ch;
+  max-width: 32rem;
+  overflow-wrap: break-word;
+  word-break: break-all;
   margin-bottom: 2rem;
 }
 
