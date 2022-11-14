@@ -690,8 +690,19 @@ a:focus-visible {
 
 .footer_author_detailed_container {
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   margin: .5rem 0;
   display: flex;
+}
+
+.footer_author_emoji {
+  margin-right: .5rem;
+  font-size: 1.2rem;
+}
+
+.footer_author_name, .footer_url_contents_prop {
+  margin-right: .5rem;
 }
 
 /*# sourceMappingURL=index.d046a61c.css.map */
