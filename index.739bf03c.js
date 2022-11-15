@@ -1045,7 +1045,10 @@ class Grid {
             el: null,
             // cells
             cells: null
-        }
+        },
+        // For show the prev & next cell
+        prevCells: null,
+        nextCells: null
     };
     // ImageCell instances array
     imageCellArr = [];
@@ -1071,6 +1074,12 @@ class Grid {
         this.DOM.miniGrid.el = this.DOM.content.querySelector(".grid--mini");
         this.DOM.miniGrid.cells = [
             ...this.DOM.miniGrid.el.querySelectorAll(".grid__cell")
+        ];
+        this.DOM.prevCells = [
+            ...this.DOM.el.querySelectorAll(".slide-nav__img--prev")
+        ];
+        this.DOM.nextCells = [
+            ...this.DOM.el.querySelectorAll(".slide-nav__img--next")
         ];
         // Text animations
         this.textReveal = new (0, _textReveal.TextReveal)([
@@ -1158,6 +1167,14 @@ class Grid {
         });
         this.DOM.miniGrid.cells.forEach((cell, position)=>{
             cell.addEventListener("click", ()=>{
+                if (this.isAnimating || this.currentCell === position) return false;
+                this.isAnimating = true;
+                this.changeContent(position);
+            });
+        });
+        this.DOM.prevCells.forEach((cell, position)=>{
+            cell.addEventListener("click", ()=>{
+                console.log("click");
                 if (this.isAnimating || this.currentCell === position) return false;
                 this.isAnimating = true;
                 this.changeContent(position);
