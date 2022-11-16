@@ -756,22 +756,24 @@
 	<script>
 		function customCursor(event){
 			var el = document.getElementById("cursor_sec");
-			el.style.top = event.clientY + "px";
+			el.style.top = event.clientY + window.pageYOffset + "px";
 			el.style.left = event.clientX + "px";
 		}
 		function hoverInCursor(){
 			var el = document.getElementById("cursor_sec");
-			el.style.fontSize = '3rem';
-			el.style.marginLeft = '-1.5rem';
-			el.style.marginTop = '-1.5rem';
-			el.style.transition = 'font-size .3s ease-in-out';
+			el.innerHTML = '👆';
+			// el.style.fontSize = '3rem';
+			el.style.marginLeft = '-.5rem';
+			el.style.marginTop = '-1rem';
+			// el.style.transition = 'font-size .3s ease-in-out';
 		}
 		function hoverOutCursor(){
 			var el = document.getElementById("cursor_sec");
-			el.style.fontSize = '2rem';
-			el.style.marginLeft = '-1rem';
+			el.innerHTML = '🐭';
+			// el.style.fontSize = '2rem';
+			el.style.marginLeft = '-.5rem';
 			el.style.marginTop = '-1rem';
-			el.style.transition = 'font-size .3s ease-in-out';
+			// el.style.transition = 'font-size .3s ease-in-out';
 		}
 		var eachGrid = document.getElementsByClassName("grid__cell-img");
 		Array.prototype.forEach.call(eachGrid, function(e) {
@@ -780,6 +782,7 @@
 		});
 		
 		window.addEventListener('mousemove', customCursor);
+		window.addEventListener('scroll', customCursor);
 	</script>
 </body>
 
