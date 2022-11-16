@@ -225,6 +225,7 @@ a:focus-visible {
   pointer-events: none;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: 15vh 8vw 0;
   display: flex;
   position: fixed;
@@ -587,6 +588,32 @@ a:focus-visible {
     font-size: .8rem;
     font-weight: 400;
     line-height: 1.2rem;
+  }
+
+  .content__item-text {
+    margin-top: 0;
+  }
+
+  .content__item-heading {
+    margin-top: 67%;
+    margin-bottom: 10%;
+    font-size: 1.5em;
+  }
+
+  .slide-nav {
+    width: 40%;
+    height: 100%;
+    pointer-events: none;
+    flex-direction: row;
+    align-content: space-between;
+    display: grid;
+    position: fixed;
+    top: 0;
+    right: 15%;
+  }
+
+  .slide-nav__img--prev {
+    transform: translateY(0%);
   }
 }
 
