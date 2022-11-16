@@ -473,7 +473,6 @@ a:focus-visible {
 		align-items: center;
 		background-image: url("../img/footer_bg.svg");
 		background-size: cover;
-		margin-top: 100vh;
 	}
 	.footer_top_container{
 		width: 100%;
