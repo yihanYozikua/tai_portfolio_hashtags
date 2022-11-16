@@ -41,6 +41,7 @@ export class Grid {
         nextCells: null,
         backToAboutButton: null,
         backToListButton: null,
+        footer: null,
     };
     // ImageCell instances array
     imageCellArr = [];
@@ -69,6 +70,7 @@ export class Grid {
         this.DOM.nextCells = [...this.DOM.el.querySelectorAll('.slide-nav__img--next')];
         this.DOM.backToAboutButton = document.querySelector('.back_to_about')
         this.DOM.backToListButton = document.querySelector('.side_bar_container')
+        this.DOM.footer = document.querySelector('.footer_container')
 
         // Text animations
         this.textReveal = new TextReveal([...this.DOM.el.querySelectorAll('.oh')]);
@@ -211,6 +213,7 @@ export class Grid {
         this.otherImageCells = this.DOM.imageCells.filter(el => el != imageCell.DOM.el);
         this.backToAboutButton = this.DOM.backToAboutButton;
         this.backToListButton = this.DOM.backToListButton;
+        this.footer = this.DOM.footer;
 
         gsap.killTweensOf([imageCell.DOM.el, imageCell.DOM.inner, this.otherImageCells]);
         gsap.timeline({
@@ -276,6 +279,10 @@ export class Grid {
             opacity: 0,
             transition: 'all .3s ease-in-out'
         }, 'showContent')
+        .set(this.footer, {
+            opacity: 0,
+            transition: 'all .3s ease-in-out'
+        }, 'showContent')
         .set(this.DOM.miniGrid.el, {
             opacity: 1
         }, 'showContent')
@@ -332,6 +339,11 @@ export class Grid {
         }, 'start')
         .set(this.backToListButton, {
             opacity: 1,
+            transition: 'all .3s ease-in-out'
+        }, 'start')
+        .set(this.footer, {
+            opacity: 1,
+            transitionDelay: '.5s',
             transition: 'all .3s ease-in-out'
         }, 'start')
         .to(this.DOM.miniGrid.cells, {

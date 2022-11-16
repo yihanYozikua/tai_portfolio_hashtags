@@ -317,7 +317,6 @@ a:focus-visible {
   color: #282d2f;
   z-index: 1000;
   cursor: pointer;
-  width: 10rem;
   background-color: #fff;
   border: 0;
   border-radius: 100px;
@@ -348,7 +347,6 @@ a:focus-visible {
   color: #282d2f;
   z-index: 1000;
   cursor: pointer;
-  width: 9rem;
   background-color: #fff;
   border: 0;
   border-radius: 100px;
@@ -674,7 +672,6 @@ a:focus-visible {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100vh;
     display: flex;
     position: relative;
   }
