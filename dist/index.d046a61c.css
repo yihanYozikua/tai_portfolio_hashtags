@@ -604,7 +604,6 @@ a:focus-visible {
     width: 40%;
     height: 100%;
     pointer-events: none;
-    flex-direction: row;
     align-content: space-between;
     display: grid;
     position: fixed;
@@ -614,6 +613,10 @@ a:focus-visible {
 
   .slide-nav__img--prev {
     transform: translateY(0%);
+  }
+
+  .back {
+    margin-left: -40vw;
   }
 }
 

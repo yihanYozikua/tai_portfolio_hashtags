@@ -10,6 +10,11 @@ const bodyEl = document.body;
 let winsize = calcWinsize();
 window.addEventListener('resize', () => winsize = calcWinsize());
 
+// if mobile
+function detectMobile() {
+    return ( ( window.innerWidth <= 768 ) );
+}
+
 /**
  * Class representing a grid of images, where the grid can be zoomed to the clicked image cell
  */
@@ -464,23 +469,21 @@ export class Grid {
      */
     calcTransformImage() {
         const cellrect = adjustedBoundingRect(this.imageCellArr[this.currentCell].DOM.el);
-        console.log(cellrect)
-        console.log(
-            winsize.width, winsize.height,
-            cellrect.left, cellrect.top,
-            cellrect.width, cellrect.height
-        )
-        console.log(winsize.width * 0.8 / cellrect.width)
-        console.log(winsize.width * 0.5 - (cellrect.left + cellrect.width/2))
-        console.log(winsize.height * 0.30 - (cellrect.top + cellrect.height/2))
-        console.log('=========')
-        return {
-            // scale: winsize.width * 0.54 / cellrect.width,
-            // x: winsize.width * 0.65 - (cellrect.left + cellrect.width/2),
-            // y: winsize.height * 0.50 - (cellrect.top + cellrect.height/2)
-            scale: winsize.width * 0.8 / cellrect.width,
-            x: winsize.width * 0.5 - (cellrect.left + cellrect.width/2),
-            y: winsize.height * 0.30 - (cellrect.top + cellrect.height/2)
-        };
+        var isMobile = detectMobile();
+        if(isMobile){
+            return {
+                scale: winsize.width * 0.8 / cellrect.width,
+                x: winsize.width * 0.5 - (cellrect.left + cellrect.width/2),
+                y: winsize.height * 0.30 - (cellrect.top + cellrect.height/2)
+            };
+        }
+        else{
+            return {
+                scale: winsize.width * 0.54 / cellrect.width,
+                x: winsize.width * 0.65 - (cellrect.left + cellrect.width/2),
+                y: winsize.height * 0.50 - (cellrect.top + cellrect.height/2)
+            };
+        }
+        
     }
 }

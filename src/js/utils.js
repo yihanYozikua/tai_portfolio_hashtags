@@ -56,7 +56,6 @@ const adjustedBoundingRect = el => {
         return rect;
       }
   
-      console.log(sx)
       var to = style.transformOrigin;
       // var x = rect.x - dx - (1 - sx) * parseFloat(to) - 500;
       var x = rect.x;

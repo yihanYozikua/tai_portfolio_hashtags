@@ -632,7 +632,6 @@ a:focus-visible {
 		top: 0;
 		height: 100%;
 		display: grid;
-		flex-direction: row;
 		align-content: space-between;
 		pointer-events: none;
 
@@ -642,7 +641,10 @@ a:focus-visible {
 	}
 
 	.grid__cell-img{
-		
+
+	}
+	.back{
+		margin-left: -40vw;
 	}
 }
 
