@@ -442,7 +442,6 @@ a:focus-visible {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100vh;
     display: flex;
     position: relative;
   }
