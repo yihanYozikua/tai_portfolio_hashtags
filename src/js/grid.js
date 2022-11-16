@@ -464,10 +464,23 @@ export class Grid {
      */
     calcTransformImage() {
         const cellrect = adjustedBoundingRect(this.imageCellArr[this.currentCell].DOM.el);
+        console.log(cellrect)
+        console.log(
+            winsize.width, winsize.height,
+            cellrect.left, cellrect.top,
+            cellrect.width, cellrect.height
+        )
+        console.log(winsize.width * 0.8 / cellrect.width)
+        console.log(winsize.width * 0.5 - (cellrect.left + cellrect.width/2))
+        console.log(winsize.height * 0.30 - (cellrect.top + cellrect.height/2))
+        console.log('=========')
         return {
-            scale: winsize.width * 0.54 / cellrect.width,
-            x: winsize.width * 0.65 - (cellrect.left + cellrect.width/2),
-            y: winsize.height * 0.50 - (cellrect.top + cellrect.height/2)
+            // scale: winsize.width * 0.54 / cellrect.width,
+            // x: winsize.width * 0.65 - (cellrect.left + cellrect.width/2),
+            // y: winsize.height * 0.50 - (cellrect.top + cellrect.height/2)
+            scale: winsize.width * 0.8 / cellrect.width,
+            x: winsize.width * 0.5 - (cellrect.left + cellrect.width/2),
+            y: winsize.height * 0.30 - (cellrect.top + cellrect.height/2)
         };
     }
 }

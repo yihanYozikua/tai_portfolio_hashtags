@@ -250,6 +250,7 @@ a:focus-visible {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .content__item {
@@ -614,6 +615,34 @@ a:focus-visible {
 		margin: 0 0 2rem 0;
 		line-height: 1.2rem;
 		color: #858A8B;
+	}
+
+	.content__item-text{
+		margin-top: 0;
+	}
+	.content__item-heading{
+		font-size: 1.5em;
+		margin-top: 67%;
+		margin-bottom: 10%;
+	}
+	.slide-nav{
+		position: fixed;
+    width: 40%;
+    right: 15%;
+		top: 0;
+		height: 100%;
+		display: grid;
+		flex-direction: row;
+		align-content: space-between;
+		pointer-events: none;
+
+	}
+	.slide-nav__img--prev{
+		transform: translateY(0%);
+	}
+
+	.grid__cell-img{
+		
 	}
 }
 
