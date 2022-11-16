@@ -329,7 +329,7 @@ a:focus-visible {
   pointer-events: none;
   stroke: #000;
   color: #282d2f;
-  z-index: 1000;
+  z-index: 200;
   cursor: pointer;
   background-color: #fff;
   border: 0;
