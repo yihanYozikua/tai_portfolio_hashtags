@@ -22,6 +22,7 @@
     "url": "https://github.com/codrops/[NAME]/issues"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "gsap": "^3.8.0",
     "imagesloaded": "^4.1.4",
     "parcel": "latest",
