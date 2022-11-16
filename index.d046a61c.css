@@ -601,14 +601,24 @@ a:focus-visible {
   }
 
   .slide-nav {
-    width: 40%;
+    width: 100%;
     height: 100%;
-    pointer-events: none;
-    align-content: space-between;
-    display: grid;
+    display: flex;
     position: fixed;
-    top: 0;
-    right: 15%;
+    top: 20vh;
+    left: 0;
+  }
+
+  .slide-nav__img {
+    height: 20vh;
+  }
+
+  .slide-nav__img--prev {
+    left: -45%;
+  }
+
+  .slide-nav__img--next {
+    left: 45%;
   }
 
   .slide-nav__img--prev {
