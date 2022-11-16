@@ -94,7 +94,9 @@ a:focus-visible {
 #cursor_sec {
   z-index: 210;
   pointer-events: none;
-  font-size: 1rem;
+  margin-top: -1rem;
+  margin-left: -1rem;
+  font-size: 2rem;
   font-weight: bold;
   position: absolute;
 }

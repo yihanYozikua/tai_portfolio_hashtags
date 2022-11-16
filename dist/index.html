@@ -661,11 +661,25 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
     el.style.top = event.clientY + "px";
     el.style.left = event.clientX + "px";
 }
-function hoverCursor() {
+function hoverInCursor() {
     var el = document.getElementById("cursor_sec");
     el.style.fontSize = "3rem";
+    el.style.marginLeft = "-1.5rem";
+    el.style.marginTop = "-1.5rem";
+    el.style.transition = "font-size .3s ease-in-out";
 }
-document.getElementsByTagName("a", hoverCursor);
+function hoverOutCursor() {
+    var el = document.getElementById("cursor_sec");
+    el.style.fontSize = "2rem";
+    el.style.marginLeft = "-1rem";
+    el.style.marginTop = "-1rem";
+    el.style.transition = "font-size .3s ease-in-out";
+}
+var eachGrid = document.getElementsByClassName("grid__cell-img");
+Array.prototype.forEach.call(eachGrid, function(e) {
+    e.addEventListener("mousemove", hoverInCursor);
+    e.addEventListener("mouseleave", hoverOutCursor);
+});
 window.addEventListener("mousemove", customCursor);
 
 </script>

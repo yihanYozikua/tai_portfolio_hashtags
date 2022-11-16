@@ -104,10 +104,12 @@ a:focus-visible {
 }
 #cursor_sec{
   position:absolute;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
 	z-index: 210;
 	pointer-events: none;
+	margin-left: -1rem;
+	margin-top: -1rem;
 }
 
 .unbutton {
