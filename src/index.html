@@ -19,6 +19,7 @@
 	<main>
 
 		
+		<div id="cursor_sec">🐭</div>
 		<div class="grid grid--large">
 			<!-- <div class="grid__cell grid__cell-c3-r2 grid__cell--padded">
 				<div class="frame">
@@ -750,6 +751,19 @@
 			anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
 		});
+	</script>
+	<script>
+		function customCursor(event){
+			var el = document.getElementById("cursor_sec");
+			el.style.top = event.clientY + "px";
+			el.style.left = event.clientX + "px";
+		}
+		function hoverCursor(){
+			var el = document.getElementById("cursor_sec");
+			el.style.fontSize = '3rem';
+		}
+		document.getElementsByTagName("a", hoverCursor);
+		window.addEventListener('mousemove', customCursor);
 	</script>
 </body>
 

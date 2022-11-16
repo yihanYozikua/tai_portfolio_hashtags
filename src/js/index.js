@@ -1,6 +1,7 @@
 import { preloadImages } from './utils';
 import { Grid } from './grid';
 
+
 // Initialize the grid
 new Grid(document.querySelector('.grid--large'));
 

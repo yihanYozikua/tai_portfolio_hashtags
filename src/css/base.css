@@ -29,6 +29,9 @@ body {
 	overflow-y: scroll;
 	line-height: 1;
 }
+html, body{
+	cursor: "test";
+}
 
 /* Page Loader */
 .js .loading::before,
@@ -98,6 +101,13 @@ a:focus-visible {
 	 :focus-visible */
 	outline: 2px solid red;
 	background: transparent;
+}
+#cursor_sec{
+  position:absolute;
+  font-size: 1rem;
+  font-weight: bold;
+	z-index: 210;
+	pointer-events: none;
 }
 
 .unbutton {

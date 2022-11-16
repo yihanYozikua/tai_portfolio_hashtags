@@ -28,6 +28,10 @@ body {
   overflow-y: scroll;
 }
 
+html, body {
+  cursor: "test";
+}
+
 .js .loading:before, .js .loading:after {
   content: "";
   z-index: 1000;
@@ -85,6 +89,14 @@ a:focus:not(:focus-visible) {
 a:focus-visible {
   background: none;
   outline: 2px solid red;
+}
+
+#cursor_sec {
+  z-index: 210;
+  pointer-events: none;
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
 }
 
 .unbutton {
