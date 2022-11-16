@@ -40,7 +40,7 @@ export class Grid {
         prevCells: null,
         nextCells: null,
         backToAboutButton: null,
-        backToListButton: null,
+        sideBarContainer: null,
         footer: null,
     };
     // ImageCell instances array
@@ -69,7 +69,7 @@ export class Grid {
         this.DOM.prevCells = [...this.DOM.el.querySelectorAll('.slide-nav__img--prev')];
         this.DOM.nextCells = [...this.DOM.el.querySelectorAll('.slide-nav__img--next')];
         this.DOM.backToAboutButton = document.querySelector('.back_to_about')
-        this.DOM.backToListButton = document.querySelector('.side_bar_container')
+        this.DOM.sideBarContainer = document.querySelector('.side_bar_container')
         this.DOM.footer = document.querySelector('.footer_container')
 
         // Text animations
@@ -212,8 +212,12 @@ export class Grid {
         //this.otherImageCells = this.DOM.imageCells.filter(el => el != imageCell.DOM.el && el.classList.contains('in-view'));
         this.otherImageCells = this.DOM.imageCells.filter(el => el != imageCell.DOM.el);
         this.backToAboutButton = this.DOM.backToAboutButton;
-        this.backToListButton = this.DOM.backToListButton;
+        this.sideBarContainer = this.DOM.sideBarContainer;
         this.footer = this.DOM.footer;
+        var isMobile = detectMobile();
+        var setSideBar = 0;
+        if (!isMobile){ setSideBar = 1; }
+        else { setSideBar = 0; }
 
         gsap.killTweensOf([imageCell.DOM.el, imageCell.DOM.inner, this.otherImageCells]);
         gsap.timeline({
@@ -275,8 +279,8 @@ export class Grid {
             opacity: 0,
             transition: 'all .3s ease-in-out'
         }, 'showContent')
-        .set(this.backToListButton, {
-            opacity: 0,
+        .set(this.sideBarContainer, {
+            opacity: setSideBar,
             transition: 'all .3s ease-in-out'
         }, 'showContent')
         .set(this.footer, {
@@ -337,7 +341,7 @@ export class Grid {
             opacity: 1,
             transition: 'all .3s ease-in-out'
         }, 'start')
-        .set(this.backToListButton, {
+        .set(this.sideBarContainer, {
             opacity: 1,
             transition: 'all .3s ease-in-out'
         }, 'start')
