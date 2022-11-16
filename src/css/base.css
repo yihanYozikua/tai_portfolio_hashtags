@@ -627,21 +627,26 @@ a:focus-visible {
 	}
 	.slide-nav{
 		position: fixed;
-    width: 40%;
-    right: 15%;
-		top: 0;
+    width: 100%;
+		top: 20vh;
+		left: 0;
 		height: 100%;
-		display: grid;
-		align-content: space-between;
-		pointer-events: none;
-
+		display: flex;
+	}
+	.slide-nav__img{
+		height: 20vh;
+	}
+	.slide-nav__img--prev{
+		left: -45%;
+	}
+	.slide-nav__img--next{
+		left: 45%;
 	}
 	.slide-nav__img--prev{
 		transform: translateY(0%);
 	}
 
 	.grid__cell-img{
-
 	}
 	.back{
 		margin-left: -40vw;
