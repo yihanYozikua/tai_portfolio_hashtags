@@ -33,7 +33,9 @@ export class Grid {
         },
         // For show the prev & next cell
         prevCells: null,
-        nextCells: null
+        nextCells: null,
+        backToAboutButton: null,
+        backToListButton: null,
     };
     // ImageCell instances array
     imageCellArr = [];
@@ -60,6 +62,8 @@ export class Grid {
         this.DOM.miniGrid.cells = [...this.DOM.miniGrid.el.querySelectorAll('.grid__cell')];
         this.DOM.prevCells = [...this.DOM.el.querySelectorAll('.slide-nav__img--prev')];
         this.DOM.nextCells = [...this.DOM.el.querySelectorAll('.slide-nav__img--next')];
+        this.DOM.backToAboutButton = document.querySelector('.back_to_about')
+        this.DOM.backToListButton = document.querySelector('.side_bar_container')
 
         // Text animations
         this.textReveal = new TextReveal([...this.DOM.el.querySelectorAll('.oh')]);
@@ -200,6 +204,8 @@ export class Grid {
         // All the others (that are inside the viewport)
         //this.otherImageCells = this.DOM.imageCells.filter(el => el != imageCell.DOM.el && el.classList.contains('in-view'));
         this.otherImageCells = this.DOM.imageCells.filter(el => el != imageCell.DOM.el);
+        this.backToAboutButton = this.DOM.backToAboutButton;
+        this.backToListButton = this.DOM.backToListButton;
 
         gsap.killTweensOf([imageCell.DOM.el, imageCell.DOM.inner, this.otherImageCells]);
         gsap.timeline({
@@ -257,6 +263,14 @@ export class Grid {
             x: '0%',
             opacity: 1
         }, 'showContent')
+        .set(this.backToAboutButton, {
+            opacity: 0,
+            transition: 'all .3s ease-in-out'
+        }, 'showContent')
+        .set(this.backToListButton, {
+            opacity: 0,
+            transition: 'all .3s ease-in-out'
+        }, 'showContent')
         .set(this.DOM.miniGrid.el, {
             opacity: 1
         }, 'showContent')
@@ -306,6 +320,14 @@ export class Grid {
         .to(this.DOM.backCtrl, {
             x: '50%',
             opacity: 0
+        }, 'start')
+        .to(this.backToAboutButton, {
+            opacity: 1,
+            transition: 'all .3s ease-in-out'
+        }, 'start')
+        .set(this.backToListButton, {
+            opacity: 1,
+            transition: 'all .3s ease-in-out'
         }, 'start')
         .to(this.DOM.miniGrid.cells, {
             duration: 0.5, 
