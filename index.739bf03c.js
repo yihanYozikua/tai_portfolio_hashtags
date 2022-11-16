@@ -604,7 +604,6 @@ const adjustedBoundingRect = (el)=>{
             dx = +ta[4];
             dy = +ta[5];
         } else return rect;
-        console.log(sx);
         var to = style.transformOrigin;
         // var x = rect.x - dx - (1 - sx) * parseFloat(to) - 500;
         var x = rect.x;
@@ -1030,6 +1029,10 @@ const bodyEl = document.body;
 // Calculate the viewport size
 let winsize = (0, _utils.calcWinsize)();
 window.addEventListener("resize", ()=>winsize = (0, _utils.calcWinsize)());
+// if mobile
+function detectMobile() {
+    return window.innerWidth <= 768;
+}
 class Grid {
     // DOM elements
     DOM = {
@@ -1452,19 +1455,16 @@ class Grid {
      * @return {JSON} the translation and scale values
      */ calcTransformImage() {
         const cellrect = (0, _utils.adjustedBoundingRect)(this.imageCellArr[this.currentCell].DOM.el);
-        console.log(cellrect);
-        console.log(winsize.width, winsize.height, cellrect.left, cellrect.top, cellrect.width, cellrect.height);
-        console.log(winsize.width * 0.8 / cellrect.width);
-        console.log(winsize.width * 0.5 - (cellrect.left + cellrect.width / 2));
-        console.log(winsize.height * 0.30 - (cellrect.top + cellrect.height / 2));
-        console.log("=========");
-        return {
-            // scale: winsize.width * 0.54 / cellrect.width,
-            // x: winsize.width * 0.65 - (cellrect.left + cellrect.width/2),
-            // y: winsize.height * 0.50 - (cellrect.top + cellrect.height/2)
+        var isMobile = detectMobile();
+        if (isMobile) return {
             scale: winsize.width * 0.8 / cellrect.width,
             x: winsize.width * 0.5 - (cellrect.left + cellrect.width / 2),
             y: winsize.height * 0.30 - (cellrect.top + cellrect.height / 2)
+        };
+        else return {
+            scale: winsize.width * 0.54 / cellrect.width,
+            x: winsize.width * 0.65 - (cellrect.left + cellrect.width / 2),
+            y: winsize.height * 0.50 - (cellrect.top + cellrect.height / 2)
         };
     }
 }
