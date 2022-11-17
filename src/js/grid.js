@@ -15,6 +15,9 @@ function detectMobile() {
     return ( ( window.innerWidth <= 768 ) );
 }
 
+// disable scroll event
+
+
 /**
  * Class representing a grid of images, where the grid can be zoomed to the clicked image cell
  */
@@ -220,8 +223,13 @@ export class Grid {
         this.showGridMiniButton = this.DOM.showGridMiniButton;
         var isMobile = detectMobile();
         var setSideBar = 0;
-        if (!isMobile){ setSideBar = 1; }
-        else { setSideBar = 0; }
+        if (!isMobile){ 
+            setSideBar = 1; 
+        }
+        else { 
+            setSideBar = 0; 
+        }
+        
 
         gsap.killTweensOf([imageCell.DOM.el, imageCell.DOM.inner, this.otherImageCells]);
         gsap.timeline({
@@ -232,10 +240,6 @@ export class Grid {
             // overflow hidden
             onStart: () => {
                 bodyEl.classList.add('oh');
-                // window.scrollTo({
-                //     top: 1000,
-                //     behavior: 'smooth'
-                // });
             },
             onComplete: () => {
                 this.isAnimating = false;
@@ -493,6 +497,11 @@ export class Grid {
             opacity: 1,
             onComplete: () => gsap.set(upcomingImageCell.DOM.el, {willChange: ''})
         }, 'start')
+        .set(upcomingImageCell.DOM.el, {
+            height: '100%',
+            width: '100%',
+            overflow: 'hidden'
+        })
         .to([upcomingImageCell.contentItem.DOM.nav.prev, upcomingImageCell.contentItem.DOM.nav.next], {
             ease: 'expo',
             y: 0
