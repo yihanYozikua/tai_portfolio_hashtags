@@ -194,18 +194,23 @@ a:focus-visible {
 	grid-auto-rows: 30vmin;
 	padding: 0.5vw;
 	--grid-padding: 0.5vw;
+	width: 94%;
 }
 
 .grid--mini {
-	width: 220px;
-	height: 300px;
+	/* width: 220px;
+	height: 300px; */
 	--grid-padding: 1px;
     margin-bottom: 3vh;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
+
     pointer-events: none;
     position: absolute;
+		width: 10vw ; 
+		height: 22vh; 
+		bottom: 0;
 }
 
 .grid__cell {
@@ -413,8 +418,36 @@ a:focus-visible {
 }
 
 @media screen and (max-width: 53em){
+	.mobile_show_grid_mini{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		right: 0;
+		top: 4.5vh;
+		z-index: 1001;
+		pointer-events: auto;
+		width: 3rem;
+		height: 3rem;
+		border: 0;
+		border-radius: 100px;
+		visibility: hidden;
+		background-color: white;
+	}
+	.mobile_show_grid_mini_prop{
+
+	}
 	.grid--mini{
-		opacity: 1;
+		opacity: 0;
+		visibility: hidden;
+		width: 100vw;
+		height: 100vh;
+		margin-bottom: 0;
+		padding: 3rem 3rem;
+		margin-left: -2rem;
+		pointer-events: auto;
+		z-index: 1000;
+		background-color: #282d2fb6;
 	}
 	#cursor_sec{
 		display: none;
@@ -703,6 +736,12 @@ a:focus-visible {
 
 
 @media screen and (min-width: 53em) {
+	.mobile_show_grid_mini{
+		display: none;
+	}
+	.mobile_show_grid_mini_prop{
+		display: none;
+	}
 	.back_to_about{
 		/* opacity: 0; */
 		stroke: #000;
@@ -930,7 +969,7 @@ a:focus-visible {
 
 	.grid {
 		grid-template-columns: repeat(4,25%);
-		width: 94%;
+		/* width: 94%; */
 	}
 	.grid__cell--padded {
 		padding: var(--grid-padding);

@@ -42,6 +42,7 @@ export class Grid {
         backToAboutButton: null,
         sideBarContainer: null,
         footer: null,
+        showGridMiniButton: null,
     };
     // ImageCell instances array
     imageCellArr = [];
@@ -71,6 +72,7 @@ export class Grid {
         this.DOM.backToAboutButton = document.querySelector('.back_to_about')
         this.DOM.sideBarContainer = document.querySelector('.side_bar_container')
         this.DOM.footer = document.querySelector('.footer_container')
+        this.DOM.showGridMiniButton = document.querySelector('.mobile_show_grid_mini');
 
         // Text animations
         this.textReveal = new TextReveal([...this.DOM.el.querySelectorAll('.oh')]);
@@ -206,6 +208,7 @@ export class Grid {
      * @param {ImageCell} imageCell - the imageCell element.
      */
     showContent(imageCell) {
+        var isMobile = detectMobile();
         // Calculate the transform to apply to the image cell
         const imageTransform = this.calcTransformImage();
         // All the others (that are inside the viewport)
@@ -214,6 +217,7 @@ export class Grid {
         this.backToAboutButton = this.DOM.backToAboutButton;
         this.sideBarContainer = this.DOM.sideBarContainer;
         this.footer = this.DOM.footer;
+        this.showGridMiniButton = this.DOM.showGridMiniButton;
         var isMobile = detectMobile();
         var setSideBar = 0;
         if (!isMobile){ setSideBar = 1; }
@@ -293,8 +297,16 @@ export class Grid {
             opacity: 0,
             transition: 'all .3s ease-in-out'
         }, 'showContent')
-        .set(this.DOM.miniGrid.el, {
-            opacity: 1
+        .set(this.showGridMiniButton, {
+            visibility: 'visible',
+            transition: 'all .3s ease-in-out'
+        }, 'showContent')
+        .add(() => {
+            if(!isMobile){
+                this.DOM.miniGrid.el.style.opacity = 1;
+            }else{
+                this.DOM.miniGrid.el.style.opacity = 0;
+            }
         }, 'showContent')
         .set(this.DOM.miniGrid.cells, {
             opacity: 0
@@ -355,6 +367,10 @@ export class Grid {
         .set(this.footer, {
             opacity: 1,
             transitionDelay: '.5s',
+            transition: 'all .3s ease-in-out'
+        }, 'start')
+        .set(this.showGridMiniButton, {
+            visibility: 'hidden',
             transition: 'all .3s ease-in-out'
         }, 'start')
         .to(this.DOM.miniGrid.cells, {
