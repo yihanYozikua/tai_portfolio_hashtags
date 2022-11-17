@@ -11,10 +11,6 @@ html {
   font-size: calc(12px + .37vw);
 }
 
-html, body {
-  cursor: none !important;
-}
-
 body {
   --color-text: #000;
   --color-bg: #f7f5ee;
