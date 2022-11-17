@@ -1012,7 +1012,6 @@ a:focus-visible {
 
   .grid--mini {
     visibility: visible;
-    position: relative;
   }
 
   .content--open .grid--mini {
