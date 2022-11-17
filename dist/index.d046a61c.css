@@ -89,13 +89,13 @@ a:focus-visible {
 }
 
 #cursor_sec {
-  z-index: 210;
   pointer-events: none;
   margin-top: -1rem;
-  margin-left: 1rem;
+  margin-left: -.25rem;
   font-size: 2rem;
   font-weight: bold;
   position: absolute;
+  z-index: 1000 !important;
 }
 
 .unbutton {
@@ -226,6 +226,7 @@ a:focus-visible {
   height: 100%;
   background-position: 50%;
   background-size: cover;
+  overflow: hidden;
 }
 
 .content {
@@ -671,14 +672,17 @@ a:focus-visible {
   .slide-nav__img--prev {
     transform: translateY(0%);
   }
+
+  .grid__cell-img {
+    overflow: hidden;
+  }
 }
 
 @media screen and (min-width: 53em) {
   .back_to_about {
-    z-index: 1;
     stroke: #000;
     color: #282d2f;
-    z-index: 1000;
+    z-index: 999;
     cursor: pointer;
     width: 9rem;
     background-color: #fff;

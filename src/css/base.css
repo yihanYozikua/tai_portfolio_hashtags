@@ -106,9 +106,9 @@ a:focus-visible {
   position:absolute;
   font-size: 2rem;
   font-weight: bold;
-	z-index: 210;
+	z-index: 1000 !important;
 	pointer-events: none;
-	margin-left: 1rem;
+	margin-left: -.25rem;
 	margin-top: -1rem;
 }
 
@@ -247,6 +247,7 @@ a:focus-visible {
 	background-position: 50% 50%;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 	/* cursor: pointer; */
 }
 
@@ -693,6 +694,7 @@ a:focus-visible {
 	}
 
 	.grid__cell-img{
+		overflow: hidden;
 	}
 	.back{
 		/* margin-left: -40vw; */
@@ -703,10 +705,9 @@ a:focus-visible {
 @media screen and (min-width: 53em) {
 	.back_to_about{
 		/* opacity: 0; */
-		z-index: 1;
 		stroke: #000;
 		color: #282d2f;
-		z-index: 1000;
+		z-index: 999;
 		cursor: pointer;
 		width: 9rem;
 		background-color: #fff;
