@@ -1017,6 +1017,7 @@ exports.export = function(dest, destName, get) {
 },{}],"5bMWt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+// disable scroll event
 /**
  * Class representing a grid of images, where the grid can be zoomed to the clicked image cell
  */ parcelHelpers.export(exports, "Grid", ()=>Grid);
@@ -1236,10 +1237,6 @@ class Grid {
             // overflow hidden
             onStart: ()=>{
                 bodyEl.classList.add("oh");
-            // window.scrollTo({
-            //     top: 1000,
-            //     behavior: 'smooth'
-            // });
             },
             onComplete: ()=>{
                 this.isAnimating = false;
