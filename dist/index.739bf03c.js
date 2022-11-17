@@ -1230,7 +1230,13 @@ class Grid {
                 ease: "expo.inOut"
             },
             // overflow hidden
-            onStart: ()=>bodyEl.classList.add("oh"),
+            onStart: ()=>{
+                bodyEl.classList.add("oh");
+            // window.scrollTo({
+            //     top: 1000,
+            //     behavior: 'smooth'
+            // });
+            },
             onComplete: ()=>{
                 this.isAnimating = false;
             }
@@ -1410,6 +1416,7 @@ class Grid {
         this.DOM.miniGrid.cells[this.currentCell].classList.remove("grid__cell--current");
         this.currentCell = position;
         this.DOM.miniGrid.cells[this.currentCell].classList.add("grid__cell--current");
+        console.log(upcomingImageCell.DOM.el.parentNode);
         // Calculate the transform to apply to the image cell
         const imageTransform = this.calcTransformImage();
         (0, _gsap.gsap).timeline({
@@ -1422,6 +1429,8 @@ class Grid {
             }
         }).addLabel("start", 0).add(imageCell.contentItem.textReveal.out(), "start").add(imageCell.contentItem.textLinesReveal.out(), "start").add(()=>{
             imageCell.contentItem.DOM.el.classList.remove("content__item--current");
+        }).add(()=>{
+            upcomingImageCell.DOM.el.parentNode.classList.add("aos-animate");
         }).set([
             imageCell.DOM.el,
             upcomingImageCell.DOM.el
