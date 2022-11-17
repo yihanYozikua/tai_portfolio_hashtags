@@ -605,7 +605,8 @@ const adjustedBoundingRect = (el)=>{
             dy = +ta[5];
         } else return rect;
         var to = style.transformOrigin;
-        var x = rect.x - dx - (1 - sx) * parseFloat(to);
+        // var x = rect.x - dx - (1 - sx) * parseFloat(to) - 500;
+        var x = rect.x;
         var y = rect.y - dy - (1 - sy) * parseFloat(to.slice(to.indexOf(" ") + 1));
         var w = sx ? rect.width / sx : el.offsetWidth;
         var h = sy ? rect.height / sy : el.offsetHeight;
@@ -1028,6 +1029,10 @@ const bodyEl = document.body;
 // Calculate the viewport size
 let winsize = (0, _utils.calcWinsize)();
 window.addEventListener("resize", ()=>winsize = (0, _utils.calcWinsize)());
+// if mobile
+function detectMobile() {
+    return window.innerWidth <= 768;
+}
 class Grid {
     // DOM elements
     DOM = {
@@ -1048,7 +1053,10 @@ class Grid {
         },
         // For show the prev & next cell
         prevCells: null,
-        nextCells: null
+        nextCells: null,
+        backToAboutButton: null,
+        sideBarContainer: null,
+        footer: null
     };
     // ImageCell instances array
     imageCellArr = [];
@@ -1081,6 +1089,9 @@ class Grid {
         this.DOM.nextCells = [
             ...this.DOM.el.querySelectorAll(".slide-nav__img--next")
         ];
+        this.DOM.backToAboutButton = document.querySelector(".back_to_about");
+        this.DOM.sideBarContainer = document.querySelector(".side_bar_container");
+        this.DOM.footer = document.querySelector(".footer_container");
         // Text animations
         this.textReveal = new (0, _textReveal.TextReveal)([
             ...this.DOM.el.querySelectorAll(".oh")
@@ -1201,6 +1212,13 @@ class Grid {
         // All the others (that are inside the viewport)
         //this.otherImageCells = this.DOM.imageCells.filter(el => el != imageCell.DOM.el && el.classList.contains('in-view'));
         this.otherImageCells = this.DOM.imageCells.filter((el)=>el != imageCell.DOM.el);
+        this.backToAboutButton = this.DOM.backToAboutButton;
+        this.sideBarContainer = this.DOM.sideBarContainer;
+        this.footer = this.DOM.footer;
+        var isMobile = detectMobile();
+        var setSideBar = 0;
+        if (!isMobile) setSideBar = 1;
+        else setSideBar = 0;
         (0, _gsap.gsap).killTweensOf([
             imageCell.DOM.el,
             imageCell.DOM.inner,
@@ -1264,6 +1282,15 @@ class Grid {
             },
             x: "0%",
             opacity: 1
+        }, "showContent").set(this.backToAboutButton, {
+            opacity: 0,
+            transition: "all .3s ease-in-out"
+        }, "showContent").set(this.sideBarContainer, {
+            opacity: setSideBar,
+            transition: "all .3s ease-in-out"
+        }, "showContent").set(this.footer, {
+            opacity: 0,
+            transition: "all .3s ease-in-out"
         }, "showContent").set(this.DOM.miniGrid.el, {
             opacity: 1
         }, "showContent").set(this.DOM.miniGrid.cells, {
@@ -1306,6 +1333,16 @@ class Grid {
         }).addLabel("start", 0).to(this.DOM.backCtrl, {
             x: "50%",
             opacity: 0
+        }, "start").to(this.backToAboutButton, {
+            opacity: 1,
+            transition: "all .3s ease-in-out"
+        }, "start").set(this.sideBarContainer, {
+            opacity: 1,
+            transition: "all .3s ease-in-out"
+        }, "start").set(this.footer, {
+            opacity: 1,
+            transitionDelay: ".5s",
+            transition: "all .3s ease-in-out"
         }, "start").to(this.DOM.miniGrid.cells, {
             duration: 0.5,
             ease: "expo.in",
@@ -1432,7 +1469,13 @@ class Grid {
      * @return {JSON} the translation and scale values
      */ calcTransformImage() {
         const cellrect = (0, _utils.adjustedBoundingRect)(this.imageCellArr[this.currentCell].DOM.el);
-        return {
+        var isMobile = detectMobile();
+        if (isMobile) return {
+            scale: winsize.width * 0.8 / cellrect.width,
+            x: winsize.width * 0.5 - (cellrect.left + cellrect.width / 2),
+            y: winsize.height * 0.30 - (cellrect.top + cellrect.height / 2)
+        };
+        else return {
             scale: winsize.width * 0.54 / cellrect.width,
             x: winsize.width * 0.65 - (cellrect.left + cellrect.width / 2),
             y: winsize.height * 0.50 - (cellrect.top + cellrect.height / 2)

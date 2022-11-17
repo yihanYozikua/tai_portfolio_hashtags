@@ -12,6 +12,9 @@
 html{
 	font-size: calc(12px + 0.37vw);
 }
+html, body{
+	cursor: none !important;
+}
 
 body {
 	margin: 0;
@@ -28,8 +31,8 @@ body {
 	overflow: hidden;
 	overflow-y: scroll;
 	line-height: 1;
+	width: 100vw;
 }
-
 /* Page Loader */
 .js .loading::before,
 .js .loading::after {
@@ -98,6 +101,15 @@ a:focus-visible {
 	 :focus-visible */
 	outline: 2px solid red;
 	background: transparent;
+}
+#cursor_sec{
+  position:absolute;
+  font-size: 2rem;
+  font-weight: bold;
+	z-index: 1000 !important;
+	pointer-events: none;
+	margin-left: -.25rem;
+	margin-top: -1rem;
 }
 
 .unbutton {
@@ -235,7 +247,8 @@ a:focus-visible {
 	background-position: 50% 50%;
 	width: 100%;
 	height: 100%;
-	cursor: pointer;
+	overflow: hidden;
+	/* cursor: pointer; */
 }
 
 .content {
@@ -245,11 +258,13 @@ a:focus-visible {
 	width: 100%;
 	height: 100%;
 	padding: 15vh 8vw 0;
-	z-index: 1000;
+	z-index: 999;
 	pointer-events: none;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: flex-start;
+	margin-left: 3vw;
 }
 
 .content__item {
@@ -289,7 +304,7 @@ a:focus-visible {
 }
 
 .content__item-link {
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 .slide-nav {
@@ -340,15 +355,15 @@ a:focus-visible {
 	pointer-events: none;
 	stroke: #000;
 	color: #282d2f;
-	z-index: 1000;
-	cursor: pointer;
-	width: 10rem;
+	z-index: 200;
+	/* cursor: pointer; */
+	/* width: 10rem; */
 	background-color: #fff;
 	border: 0;
 	border-radius: 100px;
 	justify-content: center;
 	align-items: center;
-	margin: auto 0 1.5rem;
+	/* margin: auto 0 1.5rem; */
 	padding: 0.7rem 1rem;
 	font-family: Outfit,sans-serif;
 	font-size: .7rem;
@@ -376,7 +391,7 @@ a:focus-visible {
 	color: #282d2f;
 	z-index: 1000;
 	cursor: pointer;
-	width: 9rem;
+	/* width: 9rem; */
 	background-color: #fff;
 	border: 0;
 	border-radius: 100px;
@@ -398,6 +413,18 @@ a:focus-visible {
 }
 
 @media screen and (max-width: 53em){
+	.grid--mini{
+		opacity: 1;
+	}
+	#cursor_sec{
+		display: none;
+	}
+	main{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 	.back_to_about{
 		/* opacity: 0; */
 		z-index: 1;
@@ -405,7 +432,6 @@ a:focus-visible {
 		color: #282d2f;
 		z-index: 1000;
 		cursor: pointer;
-		width: 9rem;
 		background-color: #fff;
 		border: 0;
 		border-radius: 100px;
@@ -431,6 +457,11 @@ a:focus-visible {
 		align-items: flex-start;
 		z-index: 100;
 	}
+	.side_bar_contents{
+		display: flex;
+		flex-direction: row;
+		margin-top: .8rem;
+	}
 	.side_bar_title_prop{
 		display: flex;
 		justify-content: center;
@@ -450,6 +481,9 @@ a:focus-visible {
     /* margin-bottom: .1rem; */
 		font-weight: 400;
 		font-family: 'Outfit', sans-serif;
+	}
+	.side_bar_contents_container:nth-child(1){
+		margin-right: .5rem;
 	}
 	.side_bar_contents_emoji{
 		display: flex;
@@ -472,7 +506,6 @@ a:focus-visible {
 		align-items: center;
 		background-image: url("../img/footer_bg.svg");
 		background-size: cover;
-		margin-top: 100vh;
 	}
 	.footer_top_container{
 		width: 100%;
@@ -615,16 +648,66 @@ a:focus-visible {
 		line-height: 1.2rem;
 		color: #858A8B;
 	}
+
+	.content{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 84%;
+		height: 100%;
+		z-index: 1000;
+		pointer-events: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin: 0 2rem;
+		padding: 0 0;
+	}
+	.content__item-text{
+		margin-top: 0;
+	}
+	.content__item-heading{
+		font-size: 1.5em;
+		margin-top: 50vh;
+		margin-bottom: 10%;
+	}
+	.slide-nav{
+		position: fixed;
+    width: 100%;
+		top: 20vh;
+		left: 0;
+		height: 100%;
+		display: flex;
+	}
+	.slide-nav__img{
+		height: 20vh;
+	}
+	.slide-nav__img--prev{
+		left: -45%;
+	}
+	.slide-nav__img--next{
+		left: 45%;
+	}
+	.slide-nav__img--prev{
+		transform: translateY(0%);
+	}
+
+	.grid__cell-img{
+		overflow: hidden;
+	}
+	.back{
+		/* margin-left: -40vw; */
+	}
 }
 
 
 @media screen and (min-width: 53em) {
 	.back_to_about{
 		/* opacity: 0; */
-		z-index: 1;
 		stroke: #000;
 		color: #282d2f;
-		z-index: 1000;
+		z-index: 999;
 		cursor: pointer;
 		width: 9rem;
 		background-color: #fff;
@@ -663,7 +746,7 @@ a:focus-visible {
 		align-items: center;
 		background-image: url("../img/footer_bg.svg");
 		background-size: cover;
-		margin-top: 100vh;
+		/* margin-top: 100vh; */
 	}
 	.footer_top_container{
 		width: 65%;
@@ -789,6 +872,8 @@ a:focus-visible {
 
 	}
 	.footer_url_container{
+		cursor: none !important;
+		pointer-events: none !important;
 
 	}
 	.footer_url_contents_prop{

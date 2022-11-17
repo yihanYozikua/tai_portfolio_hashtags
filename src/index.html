@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<title>Tai's Portfolio</title>
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="Codrops" />
+	<meta name="description" content="Tai, Tung-En's Portfolio" />
+	<meta name="keywords" content="Tai, Tung-En" />
+	<meta name="author" content="Tai, Tung-En & Hsiao, Yi-Han" />
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" href="https://use.typekit.net/jyi8res.css">
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
@@ -19,6 +19,7 @@
 	<main>
 
 		
+		<div id="cursor_sec">🐭</div>
 		<div class="grid grid--large">
 			<!-- <div class="grid__cell grid__cell-c3-r2 grid__cell--padded">
 				<div class="frame">
@@ -33,13 +34,15 @@
 
 			<div class="grid__cell side_bar_container">
 				<div class="side_bar_title_prop">Explore this page</div>
-				<div class="side_bar_contents_container">
-					<div class="side_bar_contents_emoji">⬇️</div>
-					<div class="side_bar_contents_text" style="color: #6B89A5">Scroll</div>
-				</div>
-				<div class="side_bar_contents_container">
-					<div class="side_bar_contents_emoji">🐭</div>
-					<div class="side_bar_contents_text" style="color: #8B7E85;">Click</div>
+				<div class="side_bar_contents">
+					<div class="side_bar_contents_container">
+						<div class="side_bar_contents_emoji">⬇️</div>
+						<div class="side_bar_contents_text" style="color: #6B89A5">Scroll</div>
+					</div>
+					<div class="side_bar_contents_container">
+						<div class="side_bar_contents_emoji">🐭</div>
+						<div class="side_bar_contents_text" style="color: #8B7E85;">Click</div>
+					</div>
 				</div>
 			</div>
 
@@ -342,6 +345,10 @@
 			</div>
 		</div>
 		<div class="content">
+			<button class="back">
+				<img src="./img/arrow_left.svg" style="margin-right: 1rem;"></img>
+				Back to list
+			</button>
 			<div class="content__item" id="item-1">
 				<span class="content__item-number oh"><span class="oh__inner"></span></span>
 				<h2 class="content__item-heading oh"><span class="oh__inner">#シェアハウス5年目</span></h2>
@@ -383,7 +390,7 @@
 			</div>
 			<div class="content__item" id="item-4">
 				<span class="content__item-number oh"><span class="oh__inner"></span></span>
-				<h2 class="content__item-heading oh"><span class="oh__inner">#日本語オタク</span></h2>
+				<h2 class="content__item-heading oh"><span class="oh__inner">#広告専攻</span></h2>
 				<p class="content__item-text">
 					台湾の大学では広告学科専攻で、マーケティングとブランディングを勉強。
 					学校でのグループ課題も、メディア代理店でのインターンシップのプロジェクトも、ターゲット分析を担当することが多かったがゆえに、人にとても興味があります。
@@ -396,7 +403,7 @@
 			</div>
 			<div class="content__item" id="item-5">
 				<span class="content__item-number oh"><span class="oh__inner"></span></span>
-				<h2 class="content__item-heading oh"><span class="oh__inner">#広告専攻</span></h2>
+				<h2 class="content__item-heading oh"><span class="oh__inner">#デジタルコンテンツ</span></h2>
 				<p class="content__item-text">
 					大学のダブルメジャー。UIUX､HCIデザインを中心に学ぶ学科です。
 					常にエンドユーザーのことを心掛けてデザインしています。
@@ -610,11 +617,6 @@
 					<div class="slide-nav__img slide-nav__img--next" style="background-image:url(img/hashtag_1.png);"></div>
 				</nav>
 			</div>
-			<button class="back">
-				<!-- <svg viewBox="0 0 50 9" width="20%" style="margin-right: 1rem;"><path d="M0 4.5l5-3M0 4.5l5 3M50 4.5h-77"></path></svg> -->
-				<img src="./img/arrow_left.svg" style="margin-right: 1rem;"></img>
-				Back to list
-			</button>
 			<nav class="grid grid--mini" style="width: 70%;">
 				<div class="grid__cell grid__cell-c1-r1">
 					<div class="grid__cell-img">
@@ -750,6 +752,42 @@
 			anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
 		});
+	</script>
+	<script>
+		function customCursor(event){
+			var el = document.getElementById("cursor_sec");
+			el.style.top = event.clientY + window.pageYOffset + "px";
+			el.style.left = event.clientX + "px";
+		}
+		function hoverInCursor(){
+			var el = document.getElementById("cursor_sec");
+			el.innerHTML = '👆';
+			// el.style.fontSize = '3rem';
+			el.style.marginLeft = '-.25rem';
+			el.style.marginTop = '.7rem';
+			// el.style.transition = 'font-size .3s ease-in-out';
+		}
+		function hoverOutCursor(){
+			var el = document.getElementById("cursor_sec");
+			el.innerHTML = '🐭';
+			// el.style.fontSize = '2rem';
+			el.style.marginLeft = '-.25rem';
+			el.style.marginTop = '-1rem';
+			// el.style.transition = 'font-size .3s ease-in-out';
+		}
+		var eachGrid = document.getElementsByClassName("grid__cell-img");
+		Array.prototype.forEach.call(eachGrid, function(e) {
+			e.addEventListener('mousemove', hoverInCursor);
+			e.addEventListener('mouseleave', hoverOutCursor);
+		});
+
+		Array.prototype.forEach.call(document.getElementsByTagName('a'), function(urls){
+			urls.addEventListener('mousemove', hoverInCursor);
+			urls.addEventListener('mouseleave', hoverOutCursor);
+		});
+		
+		window.addEventListener('mousemove', customCursor);
+		window.addEventListener('scroll', customCursor);
 	</script>
 </body>
 
