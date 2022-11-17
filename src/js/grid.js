@@ -497,11 +497,6 @@ export class Grid {
             opacity: 1,
             onComplete: () => gsap.set(upcomingImageCell.DOM.el, {willChange: ''})
         }, 'start')
-        .set(upcomingImageCell.DOM.el, {
-            height: '100%',
-            width: '100%',
-            overflow: 'hidden'
-        })
         .to([upcomingImageCell.contentItem.DOM.nav.prev, upcomingImageCell.contentItem.DOM.nav.next], {
             ease: 'expo',
             y: 0

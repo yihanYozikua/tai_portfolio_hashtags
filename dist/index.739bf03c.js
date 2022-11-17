@@ -1467,11 +1467,7 @@ class Grid {
             onComplete: ()=>(0, _gsap.gsap).set(upcomingImageCell.DOM.el, {
                     willChange: ""
                 })
-        }, "start").set(upcomingImageCell.DOM.el, {
-            height: "100%",
-            width: "100%",
-            overflow: "hidden"
-        }).to([
+        }, "start").to([
             upcomingImageCell.contentItem.DOM.nav.prev,
             upcomingImageCell.contentItem.DOM.nav.next
         ], {
