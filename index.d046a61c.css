@@ -180,20 +180,22 @@ a:focus-visible {
 
 .grid--large {
   --grid-padding: .5vw;
+  width: 94%;
   grid-auto-rows: 30vmin;
   padding: .5vw;
 }
 
 .grid--mini {
-  width: 220px;
-  height: 300px;
   --grid-padding: 1px;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  width: 10vw;
+  height: 22vh;
   margin-bottom: 3vh;
   position: absolute;
+  bottom: 0;
 }
 
 .grid__cell {
@@ -378,8 +380,34 @@ a:focus-visible {
 }
 
 @media screen and (max-width: 53em) {
+  .mobile_show_grid_mini {
+    z-index: 1001;
+    pointer-events: auto;
+    width: 3rem;
+    height: 3rem;
+    visibility: hidden;
+    background-color: #fff;
+    border: 0;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 4.5vh;
+    right: 0;
+  }
+
   .grid--mini {
-    opacity: 1;
+    opacity: 0;
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: auto;
+    z-index: 1000;
+    background-color: #282d2fb6;
+    margin-bottom: 0;
+    margin-left: -2rem;
+    padding: 3rem;
   }
 
   #cursor_sec {
@@ -678,6 +706,10 @@ a:focus-visible {
 }
 
 @media screen and (min-width: 53em) {
+  .mobile_show_grid_mini, .mobile_show_grid_mini_prop {
+    display: none;
+  }
+
   .back_to_about {
     stroke: #000;
     color: #282d2f;
@@ -914,7 +946,6 @@ a:focus-visible {
   }
 
   .grid {
-    width: 94%;
     grid-template-columns: repeat(4, 25%);
   }
 
