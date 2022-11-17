@@ -13,7 +13,7 @@ html{
 	font-size: calc(12px + 0.37vw);
 }
 html, body{
-	/* cursor: none !important; */
+	cursor: none !important;
 }
 
 body {
@@ -258,7 +258,7 @@ a:focus-visible {
 	width: 100%;
 	height: 100%;
 	padding: 15vh 8vw 0;
-	z-index: 1000;
+	z-index: 999;
 	pointer-events: none;
 	display: flex;
 	flex-direction: column;
@@ -304,7 +304,7 @@ a:focus-visible {
 }
 
 .content__item-link {
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 .slide-nav {
@@ -356,7 +356,7 @@ a:focus-visible {
 	stroke: #000;
 	color: #282d2f;
 	z-index: 200;
-	cursor: pointer;
+	/* cursor: pointer; */
 	/* width: 10rem; */
 	background-color: #fff;
 	border: 0;
@@ -872,6 +872,8 @@ a:focus-visible {
 
 	}
 	.footer_url_container{
+		cursor: none !important;
+		pointer-events: none !important;
 
 	}
 	.footer_url_contents_prop{

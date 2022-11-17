@@ -764,7 +764,7 @@
 			el.innerHTML = '👆';
 			// el.style.fontSize = '3rem';
 			el.style.marginLeft = '-.25rem';
-			el.style.marginTop = '-1rem';
+			el.style.marginTop = '.7rem';
 			// el.style.transition = 'font-size .3s ease-in-out';
 		}
 		function hoverOutCursor(){
@@ -779,6 +779,11 @@
 		Array.prototype.forEach.call(eachGrid, function(e) {
 			e.addEventListener('mousemove', hoverInCursor);
 			e.addEventListener('mouseleave', hoverOutCursor);
+		});
+
+		Array.prototype.forEach.call(document.getElementsByTagName('a'), function(urls){
+			urls.addEventListener('mousemove', hoverInCursor);
+			urls.addEventListener('mouseleave', hoverOutCursor);
 		});
 		
 		window.addEventListener('mousemove', customCursor);
