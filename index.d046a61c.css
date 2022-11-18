@@ -703,6 +703,10 @@ a:focus-visible {
   .grid__cell-img {
     overflow: hidden;
   }
+
+  .back {
+    z-index: 1001;
+  }
 }
 
 @media screen and (min-width: 53em) {
