@@ -537,7 +537,7 @@ var _grid = require("./grid");
 // Initialize the grid
 new (0, _grid.Grid)(document.querySelector(".grid--large"));
 // Preload images then remove loader (loading class) from body
-(0, _utils.preloadImages)(".grid__cell-img-inner, .slide-nav__img").then(()=>document.body.classList.remove("loading"));
+(0, _utils.preloadImages)(".grid__cell-img-inner, .slide-nav__img", ".footer_container").then(()=>document.body.classList.remove("loading"));
 
 },{"./utils":"72Dku","./grid":"5bMWt"}],"72Dku":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
