@@ -536,6 +536,11 @@ var _utils = require("./utils");
 var _grid = require("./grid");
 // Initialize the grid
 new (0, _grid.Grid)(document.querySelector(".grid--large"));
+// scroll to top
+window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
 // Preload images then remove loader (loading class) from body
 (0, _utils.preloadImages)(".grid__cell-img-inner, .slide-nav__img", ".footer_container").then(()=>document.body.classList.remove("loading"));
 
@@ -1329,6 +1334,7 @@ class Grid {
             x: "0%",
             opacity: 1
         }, "showContent").set(this.backToAboutButton, {
+            display: "none",
             opacity: 0,
             transition: "all .3s ease-in-out"
         }, "showContent").set(this.sideBarContainer, {
@@ -1385,6 +1391,7 @@ class Grid {
             x: "50%",
             opacity: 0
         }, "start").to(this.backToAboutButton, {
+            display: "flex",
             opacity: 1,
             transition: "all .3s ease-in-out"
         }, "start").set(this.sideBarContainer, {

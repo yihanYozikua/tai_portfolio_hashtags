@@ -328,6 +328,7 @@ export class Grid {
             opacity: 1
         }, 'showContent')
         .set(this.backToAboutButton, {
+            display: 'none',
             opacity: 0,
             transition: 'all .3s ease-in-out'
         }, 'showContent')
@@ -400,6 +401,7 @@ export class Grid {
             opacity: 0
         }, 'start')
         .to(this.backToAboutButton, {
+            display: 'flex',
             opacity: 1,
             transition: 'all .3s ease-in-out'
         }, 'start')

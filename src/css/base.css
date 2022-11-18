@@ -33,6 +33,11 @@ body {
 	line-height: 1;
 	width: 100vw;
 }
+
+.loading{
+	z-index: 1002 !important;
+}
+
 /* Page Loader */
 .js .loading::before,
 .js .loading::after {
