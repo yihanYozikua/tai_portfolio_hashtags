@@ -730,7 +730,7 @@ a:focus-visible {
 		overflow: hidden;
 	}
 	.back{
-		/* margin-left: -40vw; */
+		z-index: 1001;
 	}
 }
 
