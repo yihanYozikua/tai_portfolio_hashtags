@@ -79,6 +79,7 @@ a {
 a:hover {
 	color: var(--color-link-hover);
 	outline: none;
+	cursor: none!important;
 }
 
 /* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
