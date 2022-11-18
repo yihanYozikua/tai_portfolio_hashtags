@@ -695,6 +695,10 @@ Array.prototype.forEach.call(document.getElementsByTagName("a"), function(urls) 
     urls.addEventListener("mousemove", hoverInCursor);
     urls.addEventListener("mouseleave", hoverOutCursor);
 });
+Array.prototype.forEach.call(document.getElementsByClassName("back"), function(b) {
+    b.addEventListener("mousemove", hoverInCursor);
+    b.addEventListener("mouseleave", hoverOutCursor);
+});
 window.addEventListener("mousemove", customCursor);
 window.addEventListener("scroll", customCursor);
 function mobile_show_grid_mini() {
