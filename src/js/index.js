@@ -6,4 +6,4 @@ import { Grid } from './grid';
 new Grid(document.querySelector('.grid--large'));
 
 // Preload images then remove loader (loading class) from body
-preloadImages('.grid__cell-img-inner, .slide-nav__img').then(() => document.body.classList.remove('loading'));
+preloadImages('.grid__cell-img-inner, .slide-nav__img', '.footer_container').then(() => document.body.classList.remove('loading'));
