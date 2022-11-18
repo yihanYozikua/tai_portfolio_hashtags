@@ -16,6 +16,43 @@ function detectMobile() {
 }
 
 // disable scroll event
+function preventDefault(e) {
+    e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+// modern Chrome requires { passive: false } when adding event
+var supportsPassive = false;
+try {
+    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+        get: function () { supportsPassive = true; } 
+    }));
+} catch(e) {}
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+// call this to Disable
+function disableScroll() {
+    console.log('disable scroll');
+    window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+// call this to Enable
+function enableScroll() {
+    console.log('enable scroll');
+    window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+    window.removeEventListener('touchmove', preventDefault, wheelOpt);
+    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+}
 
 
 /**
@@ -211,6 +248,7 @@ export class Grid {
      * @param {ImageCell} imageCell - the imageCell element.
      */
     showContent(imageCell) {
+        disableScroll();
         var isMobile = detectMobile();
         // Calculate the transform to apply to the image cell
         const imageTransform = this.calcTransformImage();
@@ -340,6 +378,7 @@ export class Grid {
      * Scale down the image and reveal the grid again.
      */
     closeContent() {
+        enableScroll();
         // Current imageCell
         const imageCell = this.imageCellArr[this.currentCell];
         this.otherImageCells = this.DOM.imageCells.filter(el => el != imageCell.DOM.el);
@@ -438,6 +477,7 @@ export class Grid {
      * 
      */
     changeContent(position) {
+        disableScroll();
         // Current imageCell
         const imageCell = this.imageCellArr[this.currentCell];
         // Upcoming imageCell

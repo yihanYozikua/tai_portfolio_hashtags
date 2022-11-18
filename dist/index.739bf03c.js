@@ -1017,7 +1017,6 @@ exports.export = function(dest, destName, get) {
 },{}],"5bMWt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-// disable scroll event
 /**
  * Class representing a grid of images, where the grid can be zoomed to the clicked image cell
  */ parcelHelpers.export(exports, "Grid", ()=>Grid);
@@ -1033,6 +1032,45 @@ window.addEventListener("resize", ()=>winsize = (0, _utils.calcWinsize)());
 // if mobile
 function detectMobile() {
     return window.innerWidth <= 768;
+}
+// disable scroll event
+function preventDefault(e) {
+    e.preventDefault();
+}
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+// modern Chrome requires { passive: false } when adding event
+var supportsPassive = false;
+try {
+    window.addEventListener("test", null, Object.defineProperty({}, "passive", {
+        get: function() {
+            supportsPassive = true;
+        }
+    }));
+} catch (e) {}
+var wheelOpt = supportsPassive ? {
+    passive: false
+} : false;
+var wheelEvent = "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+// call this to Disable
+function disableScroll() {
+    console.log("disable scroll");
+    window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
+    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
+    window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+}
+// call this to Enable
+function enableScroll() {
+    console.log("enable scroll");
+    window.removeEventListener("DOMMouseScroll", preventDefault, false);
+    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+    window.removeEventListener("touchmove", preventDefault, wheelOpt);
+    window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
 }
 class Grid {
     // DOM elements
@@ -1210,6 +1248,7 @@ class Grid {
      * Scale up the image and reveal its content.
      * @param {ImageCell} imageCell - the imageCell element.
      */ showContent(imageCell) {
+        disableScroll();
         var isMobile = detectMobile();
         // Calculate the transform to apply to the image cell
         const imageTransform = this.calcTransformImage();
@@ -1328,6 +1367,7 @@ class Grid {
     /**
      * Scale down the image and reveal the grid again.
      */ closeContent() {
+        enableScroll();
         // Current imageCell
         const imageCell = this.imageCellArr[this.currentCell];
         this.otherImageCells = this.DOM.imageCells.filter((el)=>el != imageCell.DOM.el);
@@ -1417,6 +1457,7 @@ class Grid {
     /**
      * 
      */ changeContent(position) {
+        disableScroll();
         // Current imageCell
         const imageCell = this.imageCellArr[this.currentCell];
         // Upcoming imageCell

@@ -660,7 +660,11 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
 });
 
 </script>
-	<script>let click_mobile_show_grid_mini = false;
+	<script>window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
+let click_mobile_show_grid_mini = false;
 function customCursor(event) {
     var el = document.getElementById("cursor_sec");
     el.style.top = event.clientY + window.pageYOffset + "px";
