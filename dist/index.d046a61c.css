@@ -715,7 +715,7 @@ a:focus-visible {
 }
 
 @media screen and (min-width: 768px) {
-  .mobile_show_grid_mini, .mobile_show_grid_mini_prop {
+  #cursor_sec, .mobile_show_grid_mini, .mobile_show_grid_mini_prop {
     display: none;
   }
 
