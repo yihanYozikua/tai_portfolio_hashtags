@@ -1103,6 +1103,17 @@ a:focus-visible {
 }
 
 @media screen and (min-width: 992px) {
+  #cursor_sec {
+    pointer-events: none;
+    margin-top: -1rem;
+    margin-left: -.25rem;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    position: absolute;
+    z-index: 1000 !important;
+  }
+
   .mobile_show_grid_mini, .mobile_show_grid_mini_prop {
     display: none;
   }
