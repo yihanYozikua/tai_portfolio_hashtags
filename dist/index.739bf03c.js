@@ -536,8 +536,13 @@ var _utils = require("./utils");
 var _grid = require("./grid");
 // Initialize the grid
 new (0, _grid.Grid)(document.querySelector(".grid--large"));
+// scroll to top
+window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
 // Preload images then remove loader (loading class) from body
-(0, _utils.preloadImages)(".grid__cell-img-inner, .slide-nav__img").then(()=>document.body.classList.remove("loading"));
+(0, _utils.preloadImages)(".grid__cell-img-inner, .slide-nav__img", ".footer_container").then(()=>document.body.classList.remove("loading"));
 
 },{"./utils":"72Dku","./grid":"5bMWt"}],"72Dku":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1033,6 +1038,10 @@ window.addEventListener("resize", ()=>winsize = (0, _utils.calcWinsize)());
 function detectMobile() {
     return window.innerWidth <= 768;
 }
+// if pad
+function detectPad() {
+    return window.innerWidth <= 992 && window.innerWidth > 768;
+}
 // disable scroll event
 function preventDefault(e) {
     e.preventDefault();
@@ -1250,6 +1259,7 @@ class Grid {
      */ showContent(imageCell) {
         disableScroll();
         var isMobile = detectMobile();
+        var isPad = detectPad();
         // Calculate the transform to apply to the image cell
         const imageTransform = this.calcTransformImage();
         // All the others (that are inside the viewport)
@@ -1259,7 +1269,6 @@ class Grid {
         this.sideBarContainer = this.DOM.sideBarContainer;
         this.footer = this.DOM.footer;
         this.showGridMiniButton = this.DOM.showGridMiniButton;
-        var isMobile = detectMobile();
         var setSideBar = 0;
         if (!isMobile) setSideBar = 1;
         else setSideBar = 0;
@@ -1329,6 +1338,7 @@ class Grid {
             x: "0%",
             opacity: 1
         }, "showContent").set(this.backToAboutButton, {
+            display: "none",
             opacity: 0,
             transition: "all .3s ease-in-out"
         }, "showContent").set(this.sideBarContainer, {
@@ -1385,6 +1395,7 @@ class Grid {
             x: "50%",
             opacity: 0
         }, "start").to(this.backToAboutButton, {
+            display: "flex",
             opacity: 1,
             transition: "all .3s ease-in-out"
         }, "start").set(this.sideBarContainer, {

@@ -14,6 +14,10 @@ window.addEventListener('resize', () => winsize = calcWinsize());
 function detectMobile() {
     return ( ( window.innerWidth <= 768 ) );
 }
+// if pad
+function detectPad() {
+    return ( ( window.innerWidth <= 992 ) && ( window.innerWidth > 768 ) );
+}
 
 // disable scroll event
 function preventDefault(e) {
@@ -250,6 +254,7 @@ export class Grid {
     showContent(imageCell) {
         disableScroll();
         var isMobile = detectMobile();
+        var isPad = detectPad();
         // Calculate the transform to apply to the image cell
         const imageTransform = this.calcTransformImage();
         // All the others (that are inside the viewport)
@@ -259,7 +264,6 @@ export class Grid {
         this.sideBarContainer = this.DOM.sideBarContainer;
         this.footer = this.DOM.footer;
         this.showGridMiniButton = this.DOM.showGridMiniButton;
-        var isMobile = detectMobile();
         var setSideBar = 0;
         if (!isMobile){ 
             setSideBar = 1; 
@@ -328,6 +332,7 @@ export class Grid {
             opacity: 1
         }, 'showContent')
         .set(this.backToAboutButton, {
+            display: 'none',
             opacity: 0,
             transition: 'all .3s ease-in-out'
         }, 'showContent')
@@ -400,6 +405,7 @@ export class Grid {
             opacity: 0
         }, 'start')
         .to(this.backToAboutButton, {
+            display: 'flex',
             opacity: 1,
             transition: 'all .3s ease-in-out'
         }, 'start')
